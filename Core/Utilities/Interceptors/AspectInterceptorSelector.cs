@@ -17,7 +17,7 @@ namespace Core.Utilities.Interceptors
             var methodAttributes = type.GetMethod(method.Name)
                 .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
             classAttributes.AddRange(methodAttributes);
-            classAttributes.Add(new PerformanceAspect(5));//Herhangi bir metod 5 saniyeden fazla çalışırsa uyarı ver. (performans yönetimi)
+            classAttributes.Add(new PerformanceAspect(50));//Herhangi bir metod 5 saniyeden fazla çalışırsa uyarı ver. (performans yönetimi)
             /*classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger))); */ //otomatik olarak sistemdeki herşeyi logla
 
             return classAttributes.OrderBy(x => x.Priority).ToArray();
